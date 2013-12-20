@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>CHAPTER 10 Ajax</title>
+</h:head>
+
+<h:body>
+		Ajax allows you to partially execute, and partially render components, when some events occur.
+		<br />
+		Here some important AJAX notes:
+		<br />
+		-The id of the components whos lifecycle need to get executed are specified with the execute attribute
+		<br />
+		-The id of the components need to get rendered after the ajax request are specified in the render attribute 
+		<br />
+		-The event attribute is optional, it is used to specify the action that trigger the ajax request.(Often built in javaScript methods like; click,keyup...)
+		<br />
+		-@this reffers the to the component where the f:ajax tag is nested. The avaliable options are: @this @all,@form,@none(See the documentation for more info)
+		<br />
+
+	<br />
+	<br />
+	<b>EXAMPLE 1 - COMMON AJAX USE</b>
+	<br />
+		In this example when a key is pressed on the field an ajax request is sent.
+		<br />
+	<h:form>
+		<h:inputText id="name" value="#{demoBB.name}">
+			<f:ajax event="keyup" execute="@this" render="echo" />
+		</h:inputText>
+
+		<b><h:outputText id="echo" value="#{demoBB.name}" /></b>
+	</h:form>
+
+	<br />
+	<br />
+	<br />
+	<b>EXAMPLE 2 - AJAX GROUPS</b>
+	<br />
+	f:ajax tag can be used to AJAXIFY hold groups. In this example the ajax request will be associated with all the components in the form. 
+	<br />
+	Notice that if you remove the form, the value does not change, because ajax did not perform a partial submit when the button was clicked
+	<br />
+	When the value of the field changes, the ajax request will be triggered(To try it, just type something and click somewhere else - The ajax request will be triggered only if the value changes)
+	
+	<f:ajax>
+		<h:form>
+			<h:inputText value="#{demoBB.example2Val1}" valueChangeListener="#{demoBB.input1Click}"/>
+			<br />
+			<h:inputText value="#{demoBB.example2Val2}" valueChangeListener="#{demoBB.input2Click}"/>
+		</h:form>
+	</f:ajax>
+
+	<br />
+
+   <b>EXAMPLE 3 - MORE ADVANCED AJAX GROUPS </b>
+   You can be more specific with your ajax groups and trigger the request only when certain events occur and also even nest different ajax tags
+   <br />
+   In this case every click will trigger an ajax request. But also different events in certain components will trigger ajaxRequests
+   
+	<f:ajax event="click">
+		<h:form >
+			<h:inputText value="#{demoBB.example3Val1}" valueChangeListener="#{demoBB.input3KeyUp}">
+				<f:ajax event="keyup"/>
+			</h:inputText>
+			<br />
+			<h:inputText value="#{demoBB.example3Val2}" valueChangeListener="#{demoBB.input4MouseOver}">
+			<f:ajax event="mouseover"/>
+			</h:inputText>
+		</h:form>
+	</f:ajax>
+
+
+
+<br />
+
+   <b>EXAMPLE 4 - AJAX FIELD VALIDATION SIMPLE</b>
+   <br />
+   This example will validate straight after the component loses focus
+   <f:ajax event="click">
+   <h:form >
+   		<h:inputText id="example4Input1" value="#{demoBB.example4Val1}">
+   			<f:ajax render="fieldError"/>
+   			<f:validateRequired/>
+   		</h:inputText>
+   		<h:message id="fieldError" for="example4Input1" style="color:red"/>
+   </h:form>
+   </f:ajax>
+
+
+    <br />
+   <b>EXAMPLE 5 - AJAX FIELD VALIDATION ADVANCED</b>
+    <br />
+    In this example the field will be validated in every pressed key, if the input contains a wrong character _ the validation will not continue 
+	<br/>
+	
+	<h:form>
+		<h:inputText id="example5Id" value="#{demoBB.example5Val1}" validator="#{demoBB.validateExample5}">
+			<f:ajax event="keyup" execute="@this" render="fieldErrorExample5"/>
+		</h:inputText>
+		<h:message id="fieldErrorExample5" for="example5Id" style="color:red"/>
+	</h:form>
+	
+<br />
+<i>NOTE:The warper f:ajax event="click" warper in most cases is used to make validation messages dissapear when the user clicks somewhere else(EXAMPLE 4)</i>
+
+<br />
+<h3 style="color:red">TO DO: Complete this example by creating an AJAX example where a function from a .js file is called(See chapter 10 again)</h3>
+<br/>
+<h3 >See more events for the f:ajax tag here: </h3>
+<h3 style="color:blue">
+http://stackoverflow.com/questions/7886453/what-values-can-i-pass-to-the-event-attribute-of-the-fajax-tag
+<br/>
+http://en.wikipedia.org/wiki/DOM_events
+</h3>
+</h:body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+  <title><ui:insert name="pagetitle">Default page title</ui:insert></title> 
+</h:head>
+
+<h:body>
+
+
+  <ui:insert name="content">
+  			Default page content
+  </ui:insert>
+  
+  <!-- USE THE PARAMETER NAME TO CALL VARIABLES THAT ARE PASSED AS PARAMETERS FROM SOME COMPONENTS -->
+  
+  #{someParam}
+  
+</h:body>
+
+</html>

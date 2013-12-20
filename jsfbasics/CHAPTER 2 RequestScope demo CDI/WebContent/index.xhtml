@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+		<title>RequestScope demo CDI(Component Dependency Injection)</title>
+</h:head>
+
+<h:body>
+
+	<h:form>
+
+	<h3>RequestScope demo CDI(Component Dependency Injection)</h3>
+	<h:link value="Go to destination without submit " outcome="destination" />
+	<br/>
+	<h:inputText value="#{cdiBean.passedValue}"/>
+	<br/>
+	<h:commandButton value="submit" action="destination"/>
+	
+	</h:form>
+	
+	<table border="3">
+	<tr>
+	<td>
+	<br/>
+	<b>EXPLANATION:</b>
+	<br/>
+	It you submit a value, it will arrive and be displayed at the destination page.
+	<br/>
+	But since the backing bean is @RequestScoped, the value will be lost after the
+    <br/>
+	server returns a response. Note than when you navigate away, the value does not 
+	<br/>
+	remain
+	</td>
+	</tr>
+	</table>
+</h:body>
+</html>

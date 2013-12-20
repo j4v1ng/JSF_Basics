@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="CHAPTER 4 Using Resources Css Images Javascript">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="CHAPTER_4_Using_Resources_Css_Images"/>
+        <property name="java-output-path" value="/CHAPTER 4 Using Resources Css Images/build/classes"/>
+    </wb-module>
+</project-modules>

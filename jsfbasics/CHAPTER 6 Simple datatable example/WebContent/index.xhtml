@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Simple datatable demo</title>
+</h:head>
+
+<h:body>
+
+	<h3>Very simple datatable examples using dataTable tag</h3>
+
+	<!-- datatable goes inside a form -->
+	<!-- Datatable components goes inside columns -->
+	<!-- Using facets you can customize header an footer of the columns-->
+	<!-- Add css styles to the datatableusing the attributes styleClass,HeaderClass, columnClasses -->	
+
+	<!-- Loading the CSS -->
+	<h:outputStylesheet library="css" name="style.css"  />
+<h2>Example 1</h2>
+	<h:form>
+		<h:dataTable value="#{tableSupportBB.things}" var="thing" styleClass="things" headerClass="thingsHeader" columnClasses="oddColumn,evenColumn">
+ 
+                 <f:facet name="caption">This are the results</f:facet>
+                 
+			<h:column>
+				    <f:facet name="header">name(header)</f:facet>
+				     #{thing.name}
+				     <f:facet name="footer">name(footer)</f:facet>
+			</h:column>
+
+			<h:column>
+				    <f:facet name="header">description(header)</f:facet>
+				     #{thing.description}
+				     <f:facet name="footer">description(footer)</f:facet>
+			</h:column>
+
+			<h:column>
+				     <f:facet name="header">price(header)</f:facet>
+				     #{thing.price}
+				     <f:facet name="footer">price(footer)</f:facet>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+	
+<h2>Example 2(integrating components)</h2>
+
+<h:form>
+		<h:dataTable value="#{tableSupportBB.things}" var="thing" styleClass="things" headerClass="thingsHeader" columnClasses="oddColumn,evenColumn">
+ 				
+ 				<f:facet name="caption">This are the results</f:facet>
+ 
+			<h:column>
+				    <f:facet name="header">name(header)</f:facet>
+				     <h:commandLink>#{thing.name}</h:commandLink>
+				     <f:facet name="footer">name(footer)</f:facet>
+			</h:column>
+
+			<h:column>
+				    <f:facet name="header">description(header)</f:facet>
+				      <h:inputTextarea value="#{thing.description}"/> 
+				     <f:facet name="footer">description(footer)</f:facet>
+			</h:column>
+
+			<h:column>
+				     <f:facet name="header">price(header)</f:facet>
+				     <h:commandButton value="#{thing.price}" action="#{tableSupportBB.refresh}"/>
+				     <f:facet name="footer">price(footer)</f:facet>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+
+</h:body>
+</html>

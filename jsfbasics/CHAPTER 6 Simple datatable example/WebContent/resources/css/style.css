@@ -1,0 +1,21 @@
+.things{
+	border: thin solid black;
+	}
+	
+.thingsHeader{
+	text-align: center;
+	font-style: italic;
+	color: white;
+	background: teal;
+}
+
+.oddColumn{
+	height: 25px;
+	text-align: center;
+	background: blue;
+	}
+	
+.evenColumn{
+	text-align: center;
+	background: gray;
+	}

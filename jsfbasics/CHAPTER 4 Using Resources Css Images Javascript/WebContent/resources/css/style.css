@@ -1,0 +1,6 @@
+p {color:#00ff00;}
+.c1 {color:#00ffF0;}
+.c2 {   
+     background: url("#{resource['images:smiley.jpg']}");               
+    }
+  

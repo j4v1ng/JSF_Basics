@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<!-- OPEN THE FILES WITH THE JSP EDITOR, TO HAVE AUTOCOMPLETE CAPAVILITIES -->
+<title>Hello World (JSF)</title>
+</h:head>
+
+<h:body>
+<h1>Index page</h1>
+
+<h:form>
+	<h:outputText value="Name:"/>	
+	<h:inputText value="#{usermb.name}"/>
+	<br/>
+	<h:outputText value="Password:"/>
+	<h:inputSecret value="#{usermb.password}"/>
+	<br/>
+	<!-- The action method can redirect just by writing the name of the page -->
+	<!--  <h:commandButton value="LOG IN" action="Welcome"/>	 -->
+	<!-- But the best practice is to use a backing bean method to get the the name of the page -->
+	 <!-- value attribute needs a variable that has a get and set accessors, but action just need
+	 a method, no get/set convention is needed -->
+	 <h:commandButton value="LOG IN" action="#{usermb.redirect}"/>	
+</h:form>
+
+</h:body>
+</html>

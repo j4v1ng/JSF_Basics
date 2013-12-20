@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+<h:head>
+    <title>Java Quiz game</title>
+</h:head>
+
+<h:body>
+<h3><h:outputText value="Java Quiz game(Dynamic navigation demo 1)" /></h3>
+	<h:outputText value="Current score:"/>
+	<h:outputText value="#{quizBackingBean.score}"/>
+	<h:form>
+     <p><h:outputText value="#{quizBackingBean.currentQuestion}"/></p>
+     <h:inputText value ="#{quizBackingBean.response}"></h:inputText>
+     <h:commandButton value="Ok!" action="#{quizBackingBean.answerAction}"/>
+     </h:form>
+</h:body>
+</html>

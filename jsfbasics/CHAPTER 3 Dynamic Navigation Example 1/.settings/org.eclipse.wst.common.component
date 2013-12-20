@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="CHAPTER 3 Dynamic Navigation Example 1">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="CHAPTER_3_Dynamic_Navigation_Example_1"/>
+        <property name="java-output-path" value="/CHAPTER 3 Dynamic Navigation Example 1/build/classes"/>
+    </wb-module>
+</project-modules>

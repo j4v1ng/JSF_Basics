@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Value change events demo</title>
+</h:head>
+
+<h:body>
+
+
+	<h3 style="color:blue">Value change events are fired by editable value holders- such as h:inputText, h:selectOneRadio....</h3>
+			
+	<br/>
+	<p>
+	<b>Differences betwen <i>onChange</i> and <i>valueChangeListener</i></b>
+	<br/>
+	1-<i>onchange</i> forces the surounding form to submit
+	<br/>
+	2-<i>valueChangeListener</i> tells what method gets executed when the value of the element changes
+	
+	<br/>
+	VERY IMPORTANT!
+	<br/>
+	The JSF implementation handles all events on the server.
+	<br/>
+	So the valueChangeListener will only get executed if the request arrives to the server side.
+	<br/>
+	By using onchange what we do is just submit the form(with a bit of javascript magic) so the lifecycle starts and the value can get changed.(the value of onchange are javascript functions that execute in the client side)
+	<br/>
+	JSF also have other attributes for handling events on the client(onBlur,onFocus,onClick...)
+	 
+	</p>	
+		<h:form>
+			  
+		<h:selectOneMenu value="#{demoBB.selectedOption}" onchange="submit()" valueChangeListener="#{demoBB.optionChanged }">
+			<f:selectItems value="#{demoBB.options }"/>		
+		</h:selectOneMenu>
+							
+		</h:form>
+		
+NOTES:		
+<br/>
+<i>The var attribute can be use to store the current selected value to be able to manupulate it from the EL(Expression Language)</i>
+<br/>
+<i>For more info read page 308 from the book
+</i>
+</h:body>
+</html>

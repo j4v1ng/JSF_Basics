@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+<h:head>
+	<title>Bindings and Id's'</title>
+</h:head>
+
+<h:body>
+	<h3>Bindings</h3>
+	<p><b>Often we use the attribute value of the component tags,
+	to assign a given input to a variable in a backing bean<br />
+	But sometimes we need to save not just the inputed value, but the hold
+	component object<br />
+	In that case we use binding(See the example) </b></p>
+
+	<h:inputText binding="#{someBB.field1}" />
+
+	<br />
+	<br />
+	<br />
+
+	<h3>ID's</h3>
+	<p><b>Every JSF tag has an id. Id's are useful for:</b></p>
+	<ul>
+		<li><b>Access JSF Components from other JSF tags</b></li>
+		<li><b>Obtain Component references in Java code</b></li>
+		<li><b>Access HTML elements with scripts</b></li>
+	</ul>
+
+<!--SIMPLE EXAMPLE: HOW TO ACCES COMPONENTS FROM OTHER JSF TAGS -->
+    <h:inputText id="name" />
+    <h:message for="name"/>
+
+</h:body>
+</html>

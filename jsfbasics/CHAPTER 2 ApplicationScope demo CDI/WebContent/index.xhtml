@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+		<title>ApplicationScoped demo CDI(Component Dependency Injection)</title>
+</h:head>
+
+<h:body>
+
+	<h:form>
+
+	<h3>ApplicationScoped demo CDI(Component Dependency Injection)</h3>
+	<h:link value="Go to destination without submit " outcome="destination" />
+	<br/>
+	<h:inputText value="#{cdiBean.passedValue}"/>
+	<br/>
+	<h:commandButton value="submit" action="destination"/>
+	
+	</h:form>
+	
+	<table border="3">
+	<tr>
+	<td>
+	<br/>
+	<b>EXPLANATION:</b>
+	<br/>
+	It you submit a value, it will be submited and displayed at the destination page.
+	<br/>
+	Since the backing bean is @ApplicationScoped, the value will remain saved while the application
+	<br/>
+	is running on the server. The values of an ApplicationScoped backingbean, are attached to the application,
+	<br/>
+	and not to a concrete user.
+	</td>
+	</tr>
+	</table>
+</h:body>
+</html>

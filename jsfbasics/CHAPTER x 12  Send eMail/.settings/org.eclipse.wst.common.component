@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name=" CHAPTER 1 0  Ajax">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="CHAPTER__10__Ajax"/>
+        <property name="java-output-path" value="/CHAPTER  10  Ajax/build/classes"/>
+    </wb-module>
+</project-modules>

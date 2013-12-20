@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<!-- Use the msgs variable to call Strings from the properties files(Often used for localization) -->
+	<title>#{msgs.title}</title>
+</h:head>
+
+<!-- HOW TO IMPLEMENT LOCALIZATION:
+
+1- Create properties files for the desired languages(At src resources)
+2- Configure faces-config.xml to use the desired locale
+3- Configure faces-config.xml to use a resource bundle that allows
+the jsf pages to access the config file
+4- parameters can be passed to the config file using f:param and {0},{1},{2}...
+in the properties files
+5-To change the locale programatically see LocaleManagementBean -->
+
+
+
+<h:body>
+
+	<h:form>
+	<p><h:commandLink id="change" value="Change Language"
+		action="#{localeManagementBean.changeLanguage}" /></p>
+		<h3>#{msgs.heading}</h3>
+		<p><h:outputFormat value="#{msgs.currentScore}">
+			<!-- This is how we pass a parametar to the properties file variable currentScore.
+		     It will replace {0}-->
+			<f:param value="#{quizBean.score}" />
+		</h:outputFormat></p>
+		<p>#{msgs.guessNext}</p>
+		<p>#{quizBB.current.sequence}</p>
+		<p>#{msgs.answer} <h:inputText value="#{quizBB.answer}" /></p>
+		<p><!--Calling localization file again--> <h:commandButton
+			value="#{msgs.next}" /></p>
+	</h:form>
+
+	
+</h:body>
+</html>

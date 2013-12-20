@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+<h:head>
+	<title>f:param and f:attribute</title>
+</h:head>
+
+<h:body>
+	<h3>f:attribute</h3>
+	<p><b>In JSF, “f:attribute” tag allow you to pass a attribute
+	value to a component, or a parameter to a component via action
+	listener. For example:</b></p>
+	<br />
+	<b>Assign a attribute value to a component.</b>
+
+	<h:commandButton>
+		<f:attribute name="value" value="Click Me" />
+	</h:commandButton>
+	<br />
+	<!-- This is the same as the code above -->
+	<br />
+	<h:commandButton value="Click Me" />
+
+	<hr />
+
+	<!--Assign parameter to a component and get it back via action listener.-->
+
+	<h:commandButton actionListener="#{user.attrListener}">
+		<f:attribute name="username" value="mkyong" />
+		<f:attribute name="value" value="Click Me" />
+	</h:commandButton>
+
+	<hr />
+
+	<!-- action attribute must return String(Is used for navigation), while action listener can just perform an action(no navigation) -->
+
+	<h:form id="form">
+		<h:commandButton action="#{user.outcome}"
+			actionListener="#{user.attrListener}">
+
+			<f:attribute name="username" value="mkyong" />
+			<f:attribute name="value" value="Click Me" />
+		</h:commandButton>
+
+	</h:form>
+
+	<br />
+	<h3>f:param</h3>
+	<p><b>In JSF, “f:param” tag allow you to pass a parameter to a
+	component, but it’s behavior is different depends on which type of
+	component it’s attached. For example,</b></p>
+	<br />
+
+	<b>If attach a “f:param” tag to “h:outputFormat“, the parameter is
+	specifies the placeholder.</b>
+
+	<br />
+	<br />
+
+	<h:outputFormat value="Hello,{0}. You are from {1}.">
+		<f:param value="JSF User" />
+		<f:param value="China" />
+	</h:outputFormat>
+
+
+	<br />
+	<br />
+
+	<b>If you attach a “f:param” tag to other components like
+	“h:commandButton” , the parameter is turned into request parameter.(Will be saved in the context)</b>
+	
+	<br />
+	<br />
+	
+	<h:commandButton id="submitButton" value="Submit - US" action="#{user.outcome}">
+		<f:param name="country" value="China" />
+	</h:commandButton>
+
+</h:body>
+</html>

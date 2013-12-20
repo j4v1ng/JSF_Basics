@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+<title><h:outputText value="Dynamic Vs Static navigation" /></title>
+</h:head>
+
+<h:body>
+<h4>The difference between static and dynamic navigation, is that
+in dynamic, the destination <br />
+page, depends on a parammeter</h4>
+<br/>
+<h2>Dynamic navigation example</h2>
+<h:form id="inputForm">
+	<h:inputSecret id="is" value="#{loginBackingBean.input}" />
+	<h:commandButton value="Login" action="#{loginBackingBean.login}">
+	</h:commandButton>
+</h:form>
+<h2>Static navigation example</h2>
+<h:link value="go to about page" outcome="about"/>
+</h:body>
+</html>

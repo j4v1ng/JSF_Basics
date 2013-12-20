@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+    <title>PAGE LIFECYCLE ANNOTATIONS></title>
+</h:head>
+
+<h:body>
+<h3>PAGE LIFECYCLE ANNOTATIONS</h3>
+
+In this example, you will see in the console 2 messages that are displayed
+<br/>
+when methods annotated with page lifecycle annotations are executed.
+<br/>
+@PostConstruct: When the bean is created
+<br/>
+@PreDestroy: Just before it bean goes out of scope
+<br/>
+(Example: In a Request scoped bean the method will be executed, after the server response,
+<br/>but just before the bean is destroyed)
+
+<h:form>
+<!-- Call a property or something from the bean, so the bean gets created
+the bean is request scoped, so the predestroy will be called just before
+going out of scope -->
+ <h2>#{bd.value}</h2> 
+</h:form>
+</h:body>
+</html>

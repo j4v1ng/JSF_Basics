@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+    <title><h:outputText value="Using URL parammeters" /></title>
+    <h3><h:outputText value="Destination page"/></h3>
+</h:head>
+
+<h:body>
+<p>Using the expresion language to read parameters from the URL</p>
+<ul>
+<li>
+Step 1: Use f:metadata and f:viewParam to assign the parameter that just arrived from the URL to some variable in a backing bean
+</li>
+<li>
+Step 2: You can display the value of that variable with the h:outputText
+</li>
+</ul>
+	<f:metadata>
+	    <f:viewParam name="param" value="#{simpleBackingBean.recievedValue}"></f:viewParam>
+	</f:metadata>
+	<b><h:outputText value="The passed value is: #{simpleBackingBean.recievedValue}"/></b>
+<br/>
+<br/>
+<br/>
+<br/>
+<p>Passed URL parameters processed programatically using FacesContext:</p>
+<b><h:outputText value="The passed value is: #{simpleBackingBean.theValuesFromTheURL}"/></b>
+</h:body>
+</html>

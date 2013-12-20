@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Action Events demo</title>
+</h:head>
+
+<h:body>
+	<h2>Action Events demo</h2>
+	<p>Action events are fired by buttons and links. Action events are
+	fired during the Invoke Aplication Phase(After validation)</p>
+
+	<br />
+
+	<h3>actionListener Vs action</h3>
+
+	<ul>
+		<li><b>action:</b> Actions are designed for bussiness logic and
+		participate in the navigation handling</li>
+		<li><b>actionListener:</b>Action listeners are tipically used for
+		UI (user interface) logic and do not participate in navigation
+		handling</li>
+	</ul>
+
+	<i>Note:Action Listeners execute first and then Actions</i>
+	<br />
+	<b>Example:</b>
+	<br />
+	<h:form>
+		<strong>Choose your path:</strong>
+		<br />
+		<h:selectOneRadio value="#{demoBB.selection}">
+			<f:selectItem id="pA" itemLabel="Path A" itemValue="1" />
+			<f:selectItem id="pB" itemLabel="Path B" itemValue="2" />
+			<f:selectItem id="pC" itemLabel="Path C" itemValue="3" />
+		</h:selectOneRadio>
+		<h:commandButton actionListener="#{demoBB.pathHandler}" action="#{demoBB.act}" value="Take this path"/>
+	</h:form>
+	<b>Example explanation:</b>
+	<br/>
+	The <i>actionListener</i> performs the userinterface logic and and the <i>action</i> handles the navigation.
+	<br/>	
+		
+</h:body>
+</html>

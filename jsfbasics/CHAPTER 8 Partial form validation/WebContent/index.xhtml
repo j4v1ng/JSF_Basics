@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<f:loadBundle basename="resources.application" var="bundle" />
+
+<h:head>
+	<title>Partial form validation</title>
+</h:head>
+
+<h:body>
+	<h2>Partial form validation</h2>
+
+	<h:form>
+		<h:outputText value="Adress:" />
+		<h:inputText id="adress" value="#{demoBB.adress }">
+			<f:validateRequired />
+		</h:inputText>
+		<h:message for="adress" style="color:red" showSummary="true"
+			showDetail="false" />
+		<br />
+
+		<h:outputText value="City:" />
+		<h:inputText id="city" value="#{demoBB.city }">
+			<f:validateRequired />
+		</h:inputText>
+		<h:message for="city" style="color:red" showSummary="true"
+			showDetail="false" />
+		<br />
+
+		<h:outputText value="Province" />
+		<h:inputText id="province" value="#{demoBB.province }">
+			<f:validateRequired />
+		</h:inputText>
+		<h:message for="province" style="color:red" showSummary="true"
+			showDetail="false" />
+		<br />
+
+		<h:outputText value="Country:" />
+		<h:selectOneMenu id="country" value="#{demoBB.country}"
+			onchange="submit()" immediate="true"
+			valueChangeListener="#{demoBB.changeTheLocale}">
+			<f:selectItems value="#{demoBB.countries}" />
+		</h:selectOneMenu>
+		<br />
+
+		<h:commandButton value="Submit" />
+	</h:form>
+	
+	
+	<h3>Explanation:</h3>
+	<ol >
+	<li>
+		The select component needs to refresh the page to be able to change the locale every time its value changes
+		<br/>
+		-The onchange attribute helps submiting the form
+		<br/>
+		-The valueChangeListener tells what method needs to be executed when the form is submited
+	</li>
+	<li>
+		If we just submit the form with some fields empty, the validation will fail.  
+		<br/>
+		So the select component needs to be able to work without activating the validation.
+		<br/>	
+		To do this we need to:
+		<br/>
+		<b style="color: green">-Add the immediate tag to the selectOneMenu tag
+		<br/>
+		-In the valueChangeListener add code that will skip the validation phase.
+		</b>
+	</li>	
+	</ol>
+	
+	<i>Note: if more info is needed, check page 322 from the book</i>
+</h:body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+<h:head>
+    <title>HOW TO CALL METHODS AND PROPERTIES FROM JSF PAGES</title>
+</h:head>
+
+<h:body>
+
+	<!-- Calling a property -->
+	<b>1-</b>
+	#{bba.property}
+	<br/>
+	<!-- Calling a property inside a component(These are called method expresions)-->
+	<!-- Another example of method expresions are: 
+	action,validator,listener,valueChangeListener... (See page 70 for more info)-->	
+	<br/>
+	<b>2-</b>
+	<h:outputText value="#{bba.property}"/>
+	
+	<!-- Calling a method -->
+	<br/>
+	<b>3-</b>
+	#{bba.simpleMethod()}
+	
+	<!-- Calling a method to set the value of a component -->
+	<br/>
+	<b>4-</b>
+	<h:outputText value="#{bba.simpleMethod()}"/>
+	
+	<!-- Calling a method parametrized method -->
+	<br/>
+	<b>5-</b>
+	#{bba.parametrizedSimpleMethod("I am a parametrized method!")}
+	<!-- Calling a parametrized method and give property as argument-->	
+	<br/>
+	<b>6-</b>
+	#{bba.parametrizedSimpleMethod(bba.property)}
+	<br/>	
+	<b>7-</b> 
+	<!--Calling a parametrized method ad using a non void method as argument(This is called dynamical computation)-->
+	#{bba.parametrizedSimpleMethod(bba.simpleMethod())}
+	<br/>
+	<b>8-</b>
+	<!-- Using JSLT Functions-->
+	#{fn:length("Hello")}
+	<br/>
+	<b>9-</b>
+	<!-- Pass a property value to a JSLT Function-->
+	#{fn:length(bba.property)}
+	<br/>
+	<b>10-</b>
+	<!-- Use a method as argument of a JSLT Function-->
+	#{fn:length(bba.simpleMethod())}	
+	<!-- Use a parametrized method as argument of a JSLT Function-->
+	<br/>
+	<b>11-</b>	
+	#{fn:length(bba.parametrizedSimpleMethod("JSLT Functions are really really cool"))}
+	(More JSLT methods can be found at the book in page 66)
+	<br/>
+	<b>Same rules applies for giving values to components:</b>
+	<br/>
+	<h:outputText value="#{bba.parametrizedSimpleMethod(bba.simpleMethod())}"/><br />
+	<br/>
+	<h3><b>Note:</b>The Expresion Language, can also give you access to some predefine objects(See page 68)</h3>
+	<br/>
+	<!-- Example of how to call predefined objects(For more info read documentation) -->
+	#{header['User-Agent']}	
+</h:body>
+</html>

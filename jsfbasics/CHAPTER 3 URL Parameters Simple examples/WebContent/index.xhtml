@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+	<title><h:outputText value="Using URL parammeters" /></title>
+</h:head>
+
+<h:body>
+	<h3><h:link outcome="destination?faces-redirect=true"
+		value="No params" /></h3>
+
+	<h3><h:link outcome="destination?param=2" value="Single param" /></h3>
+
+	<h3><h:link outcome="destination?a=2&amp;b=3"
+		value="Multiple params(Using amp)" /></h3>
+
+	<h3><h:link outcome="destination"
+		value="Passing params to URL automatically using FacesContext" includeViewParams="true">
+			<f:param name="a" value="Passed value1"/> 
+			<f:param name="b" value="Passed value2"/>
+			<f:param name="c" value="#{simpleBackingBean.simpleValue}"/>
+	</h:link></h3>	
+	
+</h:body>
+</html>

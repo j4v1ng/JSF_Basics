@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+		<title>SessionScoped demo CDI(Component Dependency Injection)</title>
+</h:head>
+
+<h:body>
+
+	<h:form>
+
+	<h3>SessionScoped demo CDI(Component Dependency Injection)</h3>
+	<h:link value="Go to destination without submit " outcome="destination" />
+	<br/>
+	<h:inputText value="#{cdiBean.passedValue}"/>
+	<br/>
+	<h:commandButton value="submit" action="destination"/>
+	
+	</h:form>
+	
+	<table border="3">
+	<tr>
+	<td>
+	<br/>
+	<b>EXPLANATION:</b>
+	<br/>
+	It you submit a value, it will be submited and displayed at the destination page.
+	<br/>
+	Since the backing bean is @SessionScoped, the value will remain saved,untill the
+	<br/>
+	session ends or expires(Session is ended when invalidate() method is called)
+	<br/>
+	<b>Notes:
+	<br/>
+	 - that a new browser window is opened, that counts as a new session(Another user)
+	 <br/>
+	 -Warning: Some browsers(like chrome) will use the same session even if a new browser window
+	 <br/>
+	 is opened by the same user, but if you open the program again in a different browser, you will see that the session
+	 <br/>
+	 is different.(It makes sense for browsers, to behave like this because, they think that if a new browser window is openned,
+	 <br/>
+	 it is the same user that opened it)
+	 <br/>
+	 -If we navagate away and then come back, the value remain, becouse it is Session scoped
+	</b>
+	</td>
+	</tr>
+	</table>
+</h:body>
+</html>

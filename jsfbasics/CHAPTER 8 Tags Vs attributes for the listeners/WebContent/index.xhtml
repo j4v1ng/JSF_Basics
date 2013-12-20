@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title> Tags Vs attributes for the listeners</title>
+</h:head>
+
+<h:body>
+<h3>Tags Vs attributes for the listeners</h3>
+<br/>
+When we use listeners we often use the attribute in the tag(actionListener, valueChangeListener...),
+but sometimes if one component needs more than one listener of the same type, we will need to use tags instead of attributes.
+<br/>
+<br/>
+<b style="color:green">To be able to use tags (f:actionListener, f:valueChangedListener)so we can have more listener executed for one component:
+<br/>
+ 1-We need to create our own listener implementation classes!
+ <br/>
+ 2-Then we add the listeners to the component using the desired listener tag.
+ <br/>
+ 3-We need to make sure the <i>type</i> attribute of the listener tag correctly points to the implementation of the listener 
+ </b>
+ 
+	
+
+	<h:form>			  
+		<h:selectOneMenu value="#{demoBB.selectedOption}" onchange="submit()" >
+			<f:valueChangeListener type="customlisteners.DemoValueChangeListener1"/>
+			<f:valueChangeListener type="customlisteners.DemoValueChangeListener2"/>
+			<f:valueChangeListener type="customlisteners.DemoValueChangeListener3"/>
+			<f:selectItems value="#{demoBB.options }"/>		
+		</h:selectOneMenu>							
+	</h:form>
+
+<i>Note:The listeners will be executed in the same order as they are called</i>
+
+</h:body>
+</html>

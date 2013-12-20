@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<f:loadBundle basename="resources.application" var="bundle" />
+
+<h:head>
+	<title>Using resources such as: Css,Images,Javascript...</title>
+	
+</h:head>
+
+<h:body>
+	
+	<h3><h:outputText value="Using resources such as: Css,Images,Javascript..." /></h3>
+	<h5>CSS</h5>
+	<ul>
+		<li>
+		    1- you need to create a resources folder(See project structure)
+		</li>
+		<li>
+		    2- you need to add the style somewhere inside the body tag using outputStyleSheet(See bellow)
+		</li>
+		<li>
+		    3- The CSS will be loaded automatically(also use the classes on the Css wherever you want in the page)
+		</li>
+	</ul>
+	<!-- Loading the CSS -->
+	<h:outputStylesheet library="css" name="style.css"  />
+	
+	<!--Using automatically css edited tags-->
+	<p>You should refer the css with a tag</p>
+	<!--Using css classes-->
+	<div class="c1">Some text edited with Css</div>
+	
+	<br/>
+	
+	
+	<h5>IMAGES</h5>
+	<!-- There are a few ways of calling images (The first one is recommended)-->
+	<h:graphicImage name="image.png" library="images"/>
+	<h:graphicImage url="/resources/images/smiley.jpg"/>	
+	
+	<!-- Also you can use images in buttons ussing the path to the image or Css-->
+	<h:commandButton image="/resources/images/smiley.jpg"/>
+	<h:commandButton styleClass="c2"/>
+	
+	
+	
+	<h5>JAVA SCRIPT</h5>
+	<!-- The script should be targeted to head, so it is avaliable in the hold page -->
+	<h:outputScript name="script.js" library="javascript" target="head"/>
+	<h:form>
+		<h:commandLink value="Click me" onclick="doSomething()"/>
+	</h:form>
+</h:body>
+</html>

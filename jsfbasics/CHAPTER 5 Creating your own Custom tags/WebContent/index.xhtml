@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:mytags="http://mytags.com/facelets">
+ 
+<ui:composition template="WEB-INF/templates/masterLayout.xhtml">
+	<ui:define name="pagetitle">
+	Defining custom tags
+	</ui:define>
+	<ui:define name="content">
+	Defining custom tags is a 3 step process:
+	<ul>
+		<li>Use ui:compisition to create some content.(Custom tags are stored in WEB-INF/customtags)</li>
+		<li>Declares the custom tag in a tag library descriptor into the WEB-INF folder(Example: mycustomtags.taglib.xml).</li>
+		<li>Register the tag library descriptor in the web.xml.</li>		
+	</ul>
+	
+	<!-- Here should go a call to the new created tag -->
+	<mytags:mybutton buttonSubmitLabel="Submit" buttonResetLabel="Reset" /> 
+	
+	</ui:define>	
+</ui:composition>
+
+</html>

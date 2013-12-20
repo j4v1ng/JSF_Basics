@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<!-- OPEN THE FILES WITH THE JSP EDITOR, TO HAVE AUTOCOMPLETE CAPAVILITIES -->
+<title>Hello World (JSF)</title>
+</h:head>
+
+<h:body>
+<h1>Index page</h1>
+
+<h:form>
+	<h:outputText value="Name:"/>	
+	<h:inputText id="nameInput" value="#{usermb.name}"/>
+	<br/>
+	<h:outputText value="Password:"/>
+	<h:inputSecret id="passwordInput" value="#{usermb.password}"/>
+	<br/>
+<!-- ADDING AJAX SUPPORT TO A COMMAND BUTTON!!! -->
+	<h:commandButton value="LOG IN">
+	<!-- The execute attribute indicates the list of field values that will be passed to the server side
+	in the ajax request. The render attribute indicate the list of components that will be rendered -->
+	<f:ajax execute="nameInput passwordInput" render="out"/>
+	</h:commandButton>
+	
+	<br/>
+	<h:outputText id="out" value="#{usermb.greetingMsg}"/>	
+</h:form>
+
+</h:body>
+</html>

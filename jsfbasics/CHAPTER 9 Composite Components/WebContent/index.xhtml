@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:custom="http://java.sun.com/jsf/composite/custom">
+
+
+
+<h:head>
+    <title>CHAPTER 9 - Composite components</title>
+</h:head>
+
+<h:body>
+<h3>CHAPTER 9 - Composite components</h3>
+
+Composite components will allow you have reusable components that can be packed and reused in other applications.
+<br/>
+The steps to create composite components are:
+<br/>
+
+<b>1.</b>
+Create a composite component under the resources(You can create sub package called ccs) package and add the name space <i>xmlns:composite="http://java.sun.com/jsf/composite</i>
+<br/>
+<b>2.</b>Every composite component has 2 parts:
+interface: Atributes that the component can use will be specified here
+<br/>
+implementation: The markup implementation of the component
+<br/>
+
+ 
+<custom:demoCustomComponent attribute1="#{demoBB.value1 }" attribute2="#{demoBB.value2 }" actionBtnText="Button text!" actionMethod="#{demoBB.act}" someMessage="#{msgs.notice }"/>
+
+
+<h2 style="color: red">TO DO: field validation for the composite component</h2>
+</h:body>
+</html>

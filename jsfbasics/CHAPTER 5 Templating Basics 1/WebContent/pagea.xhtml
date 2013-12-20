@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<!-- THE ONLY NEEDED THIN IS THE xmlns(There is no need for a body tag...(The body tag is in the template)) -->
+
+<ui:composition template="WEB-INF/Templates/MasterLayout.xhtml">
+<!-- THIS IS A THE REPLACEMENT FOR THE PAGE TITLE -->
+	<ui:define name="pagetitle">
+			This is the page A
+	</ui:define>
+
+<!-- THIS IS A THE REPLACEMENT FOR THE CONTENT OF THE PAGE -->
+	<ui:define name="content">
+			<b>COMPOSITION FOR PAGE A</b>
+	</ui:define>
+
+
+</ui:composition>
+</html>

@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<!-- THE ONLY NEEDED THIN IS THE xmlns(There is no need for a body tag...(The body tag is in the template)) -->
+
+<ui:composition template="WEB-INF/Templates/MasterLayout.xhtml">
+<!-- THIS IS A THE REPLACEMENT FOR THE PAGE TITLE -->
+	<ui:define name="pagetitle">
+			This is the index page
+	</ui:define>
+
+<!-- THIS IS A THE REPLACEMENT FOR THE CONTENT OF THE PAGE -->
+	<ui:define name="content">
+			<b>This little program explains basic templating with JSF</b>
+			<ul>
+			<li>		
+			
+			First you create a template(A common look and fell for all the pages in your program).
+			<br/>
+			The parts of the template that may vary(differ), should be warped inside the insert tag, and also is
+			<br/>
+			very important to give to the insert tag a name.(See MasterLayot.xhtml)
+			</li>
+			<br/>
+			<br/>
+			<li>
+				Then all you need to do is create each different part of the template.
+				<br/>
+				For that you will create one or many composition pages that define, the elements that should be replaced in the
+				<br/>
+				template.(This page(index.xhtml), is an example of how to do it, have a look at its source code)
+				<br/>
+				You just need to use the composition and define(With the name of the insert tag in the template) tags.
+			</li>			
+			
+			</ul>
+	</ui:define>
+
+
+</ui:composition>
+</html>

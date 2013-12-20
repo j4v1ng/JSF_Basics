@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>CHAPTER 12 Sending email</title>
+</h:head>
+
+<h:body>
+	<h3>1- Create a mail session in the app server</h3>
+	<br />
+To send email you need a mail session to be congigurated(See the image)
+<br />
+	<h:graphicImage name="image1.png" library="images" />
+	<br />
+	<h3>2- Prepare images for email</h3>
+	<br />
+If you want the email to contain images, those images should be stored in the classpath of the app(See image)
+	<br/><h:graphicImage name="image2.png" library="images" />
+	<br />
+	<h3>3- Create an EJB for sending the email and call it from the
+	front ussing a CDI bean</h3>
+	<h:form>
+		<h:outputLabel value="Select email destination:"/>
+		<h:inputText id="email" value="#{supportBB.destinationEmail}"/>
+		<h:commandButton action="#{supportBB.sendMail}" value="Send email" />
+	</h:form>
+</h:body>
+</html>

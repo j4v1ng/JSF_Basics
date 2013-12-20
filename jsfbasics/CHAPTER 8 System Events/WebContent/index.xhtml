@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+<h:head>
+    <title>SYSTEM EVENTS</title>
+</h:head>
+
+<h:body>
+<h3>SYSTEM EVENTS</h3>
+<p>System events are events that are fired in phases of the JSF lyfe cycle(Example: Before validation, After validation)...
+<br/>
+So you can detect this events and perform actions when occur.
+<br/>
+<b>In this Demo a System event is handled after the validation occurs and prints a message on the console:</b>
+</p>
+
+
+<h:form>
+	<h:inputText id="field" value="#{demoBB.field}">
+		<f:validateRequired/>		
+		<f:event type="postValidate" listener="#{demoBB.method1}"/>
+	</h:inputText>
+	<h:message for="field" style="color:red" showSummary="true"
+			showDetail="false" />
+	<br/>
+	<h:commandButton value="Submit!"/>
+</h:form>
+
+<i>Notes:
+<br/>
+Supported types for the f:event tag: preRenderComponent, PostAddToView, preValidate, postValidate
+<br/> more info at: http://javaserverfaces.java.net/nonav/docs/2.0/pdldocs/facelets/
+</i>
+
+
+</h:body>
+</html>

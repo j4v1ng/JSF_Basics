@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="CHAPTER 5 Creating your own Custom tags">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="CHAPTER_5_Creating_your_own_Custom_tags"/>
+        <property name="java-output-path" value="/CHAPTER 5 Creating your own Custom tags/build/classes"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="CHAPTER 2 Injecting Backing Beans CDI">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="Injecting_Backing_Beans_CDI"/>
+        <property name="java-output-path" value="/Injecting Backing Beans CDI/build/classes"/>
+    </wb-module>
+</project-modules>

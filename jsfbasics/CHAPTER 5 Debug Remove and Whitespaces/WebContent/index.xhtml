@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Debug Remove and Whitespaces</title>
+</h:head>
+
+<h:body>
+
+	<ui:debug />
+
+	<h3>Debug using ui:debug tag</h3>
+	<p>If you place the tag ui:debug somewhere in a page, you will see
+	the<br />
+	component tree of this page.<strong>A recomentadion is to put
+	the debug tag on the template</strong></p>
+	<br />
+	<strong>When the application is running in the browser, press
+	CTRL+SHIFT+D to open the component tree</strong>
+Note: When the application is finished you should remove all debug tags.
+ 
+
+
+<h3>Using ui:remove tag as comments</h3>
+	<p>HTML comments on JSF, have no effect on components(only
+	sometimes), the way things should be commented is using the remove tag</p>
+	<ui:remove>
+		<h:outputText value="some text" />
+	</ui:remove>
+	
+<h3>White spaces</h3>
+<p>To place white spaces you should use empty value expresions</p>
+	<h:outputText value="some" />#{' '}<h:outputText value="text" />
+</h:body>
+</html>

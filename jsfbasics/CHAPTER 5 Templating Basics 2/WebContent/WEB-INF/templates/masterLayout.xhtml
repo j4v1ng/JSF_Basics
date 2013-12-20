@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+  <title><ui:insert name="title">Default title</ui:insert></title> 
+</h:head>
+
+<h:body>
+
+<div id="header">
+    <h:graphicImage name="headerbanner.jpg" library="images"/>
+    <br/>
+    <h:link value="Mercury" outcome="mercury"/>
+   	<h:link value="Venus" outcome="venus"/>
+    <h:link value="Earth" outcome="earth"/>
+    <h:link value="Mars" outcome="mars"/>
+    <h:link value="Jupiter" outcome="jupiter"/>
+    <h:link value="Saturn" outcome="saturn"/>
+    <h:link value="Uranus" outcome="uranus"/>
+    <h:link value="Neptune" outcome="neptune"/>
+    <h:link value="login" outcome="login"/>
+</div>
+
+
+<div id="content">
+  <ui:insert name="content">
+  	<!-- Default content -->
+  	<!-- The include tag will be replaced with a chunk of xhtml warped with the
+  	composite tag, but with no template attribute -->
+      	<ui:include src="WEB-INF/includedcomponents/defaultContent.xhtml"/> 
+  </ui:insert>
+</div>
+
+
+</h:body>
+
+</html>
